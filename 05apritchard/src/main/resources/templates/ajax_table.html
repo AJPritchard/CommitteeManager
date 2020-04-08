@@ -1,0 +1,36 @@
+<div>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Member Count</th>
+			<th>Type</th>
+			<th>Member Structure</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+
+		<!-- This loops through the committee list as a foreach loop -->
+		<#list committees as committee>
+		<tr>
+			<th>${committee.getId()}</th>
+			<th>${committee.getTitle()}</th>
+			<th>${committee.getMembers()}</th>
+			<th>${committee.getType()}</th>
+			<th>${committee.getCommandStruct()}</th>
+
+			<th>${committee.getStart()}</th>
+			<th>${committee.getEnd()}</th>
+
+			<th><input id="editBtn" class="btn btn-secondary" type="Button"
+				value="Edit"
+				onClick="openEditDialogue(${committee.getId()}, '${committee.getTitle()}', '${committee.getMembers()}', '${committee.getType()}', '${committee.getCommandStruct()}', '${committee.getStart()}', '${committee.getEnd()}')" /></th>
+			<th><input id="removeBtn" class="btn btn-secondary"
+				type="Button" value="Remove"
+				onClick="deleteCommittee(${committee.getId()})" /></th>
+		</tr>
+		</#list>
+	</table>
+</div>
